@@ -32,7 +32,7 @@ class BeerList(generics.ListCreateAPIView):
   serializer_class = BeerSerializer
   permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
   def perform_create(self, serializer):
-    serializer.save(owner=self.request.user)
+    serializer.save(user=self.request.user)
 
 class BeerDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Beer.objects.all()
@@ -44,7 +44,7 @@ class CommentList(generics.ListCreateAPIView):
   serializer_class = CommentSerializer
   permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly) 
   def perform_create(self, serializer):
-    serializer.save(owner=self.request.user)
+    serializer.save(user=self.request.user)
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
   queryset = Comment.objects.all().prefetch_related('beer')

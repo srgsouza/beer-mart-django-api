@@ -13,7 +13,7 @@ class BeerSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     class Meta:
         model = Beer
-        fields = ('brewery_name', 'beer_name', 'description', 'abv', 'ibu', 'price', 'package', 'user' )
+        fields = ('id', 'brewery_name', 'beer_name', 'description', 'abv', 'ibu', 'price', 'package', 'user' )
 
 class CommentSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
