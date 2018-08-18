@@ -4,7 +4,7 @@ from .models import Beer, Comment
 class BeerForm(forms.ModelForm):
   class Meta:
     model = Beer
-    fields = ('brewery_name','beer_name', 'description', 'abv', 'price', 'package', 'owner')
+    fields = ('brewery_name','beer_name', 'description', 'abv', 'price', 'package', 'user')
 
 class CommentForm(forms.ModelForm):
   class Meta:
